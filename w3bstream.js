@@ -13,11 +13,6 @@ module.exports = function (RED) {
     var node = this;
     initClient(node);
     node.on("input", function (msg, send, done) {
-      send =
-        send ||
-        function () {
-          node.send.apply(node, arguments);
-        };
       node.client
         .publishSingle(
           {
@@ -29,7 +24,7 @@ module.exports = function (RED) {
         .then((res) => {
           msg.payload = res.data;
           send(msg);
-          done?.();
+          done();
         });
     });
   }
