@@ -1,0 +1,46 @@
+<script type="text/javascript">
+  RED.nodes.registerType("w3bstream", {
+    category: 'w3bstream',
+    color: '#a6bbcf',
+    defaults: {
+      name: { value: "" },
+      url: { value: "", required: true },
+      apikey: { value: "", required: true },
+      deviceid: { value: "", required: true },
+      eventtype: { value: "" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "white-globe.svg",
+    label: function () {
+      return this.name || "w3bstream";
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="w3bstream">
+    <div class="form-row">
+        <label for="node-input-name">Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+      <label for="node-input-url">URL</label>
+      <input type="text" id="node-input-url" placeholder="URL">
+    </div>
+    <div class="form-row">
+      <label for="node-input-apikey">API Key</label>
+      <input type="text" id="node-input-apikey" placeholder="API Key">
+    </div>
+    <div class="form-row">
+      <label for="node-input-deviceid">Device ID</label>
+      <input type="text" id="node-input-deviceid" placeholder="Device ID">
+    </div>
+    <div class="form-row">
+      <label for="node-input-eventtype">Event Type</label>
+      <input type="text" id="node-input-eventtype" placeholder="Event Type (leave empty to use msg.topic)">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="w3bstream">
+    <p>A node to send events to a W3bstream instance by HTTP request</p>
+</script>
