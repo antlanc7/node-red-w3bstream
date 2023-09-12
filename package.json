@@ -1,9 +1,9 @@
 {
   "name": "@antlanc/node-red-w3bstream",
   "version": "0.1.0",
-  "type": "commonjs",
+  "type": "module",
   "description": "",
-  "main": "index.js",
+  "main": "w3bstream.js",
   "keywords": [
     "node-red"
   ],
@@ -13,7 +13,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "lint": "npx node-red-dev validate"
+    "lint": "bunx node-red-dev validate",
+    "build": "bun build w3bstream.js --outdir ./build"
   },
   "node-red": {
     "version": ">=1.0.0",

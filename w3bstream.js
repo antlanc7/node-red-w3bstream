@@ -1,17 +1,14 @@
-async function initClient(node) {
-  const { W3bstreamClient } = await import("w3bstream-client-js");
-  try {
-    node.client = new W3bstreamClient(config.url, config.apikey);
-  } catch (error) {
-    node.error(error);
-  }
-}
+import { W3bstreamClient } from "w3bstream-client-js";
 
 module.exports = function (RED) {
   function W3bstreamNode(config) {
     RED.nodes.createNode(this, config);
     var node = this;
-    initClient(node);
+    try {
+      node.client = new W3bstreamClient(config.url, config.apikey);
+    } catch (error) {
+      node.error(error);
+    }
     node.on("input", function (msg, send, done) {
       node.client
         .publishSingle(
