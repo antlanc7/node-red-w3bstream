@@ -14,7 +14,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "npx node-red-dev validate",
-    "build": "npx esbuild src/w3bstream.js --bundle --platform=node --target=node16 --outfile=dist/w3bstream.js",
+    "build": "esbuild src/w3bstream.js --bundle --platform=node --target=node16 --outfile=dist/w3bstream.js",
     "prepublish": "npm run build"
   },
   "node-red": {
@@ -25,6 +25,9 @@
   },
   "dependencies": {
     "w3bstream-client-js": "^3.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.2"
   },
   "engines": {
     "node": ">=14.0.0"
