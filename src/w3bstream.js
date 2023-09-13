@@ -1,6 +1,6 @@
 import { W3bstreamClient } from "w3bstream-client-js";
 
-module.exports = function (RED) {
+export default function (RED) {
   function W3bstreamNode(config) {
     RED.nodes.createNode(this, config);
     var node = this;
@@ -26,4 +26,4 @@ module.exports = function (RED) {
     });
   }
   RED.nodes.registerType("w3bstream", W3bstreamNode);
-};
+}

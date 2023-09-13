@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "description": "",
-  "main": "w3bstream.js",
+  "main": "dist/w3bstream.js",
   "keywords": [
     "node-red"
   ],
@@ -13,13 +13,14 @@
   },
   "license": "MIT",
   "scripts": {
-    "lint": "bunx node-red-dev validate",
-    "build": "bun build w3bstream.js --outdir ./build"
+    "lint": "npx node-red-dev validate",
+    "build": "npx esbuild src/w3bstream.js --bundle --platform=node --target=node16 --outfile=dist/w3bstream.js",
+    "prepublish": "npm run build"
   },
   "node-red": {
     "version": ">=1.0.0",
     "nodes": {
-      "w3bstream": "w3bstream.js"
+      "w3bstream": "dist/w3bstream.js"
     }
   },
   "dependencies": {
