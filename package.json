@@ -1,7 +1,7 @@
 {
   "name": "@antlanc/node-red-w3bstream",
   "version": "0.1.0",
-  "type": "module",
+  "type": "commonjs",
   "description": "",
   "main": "dist/w3bstream.js",
   "keywords": [
